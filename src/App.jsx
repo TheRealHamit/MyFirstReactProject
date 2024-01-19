@@ -10,20 +10,24 @@ function App() {
   return (
     <>
     <div>
-      {
-        puppies.map((puppy) => {
-          return <p onClick={() => {setFeatPupId(puppy.id)}} key={puppy.id}>{puppy.name}</p>
-        })
-      }
-      <p>{featPupId && (
-        <div>
+        <section className = "puppy-container">
+        {
+          puppies.map((puppy) => {
+            return <section onClick={() => {setFeatPupId(puppy.id)}} className = "puppy" key={puppy.id}>
+                <p>{puppy.name}</p>
+              </section>
+          })
+        }
+      </section>
+      {featPupId && (
+        <div className = "featured-pup">
           <h2>{featuredPup.name}</h2>
           <ul>
             <li>Age: {featuredPup.age}</li>
             <li>Email: {featuredPup.email}</li>
           </ul>
         </div>
-      )}</p>
+      )}
     </div>
     </>
   )
